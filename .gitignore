@@ -1,0 +1,16 @@
+Library/
+Temp/
+.vscode/
+.history/
+Logs/
+UserSettings/
+Packages/
+*.sln
+*.csproj
+*.sln
+*.userprefs
+*.unityproj
+*.DS_Store
+Build/
+临时/Latex任务书使用视频.wmv
+Assets/Samples
