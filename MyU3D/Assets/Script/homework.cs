@@ -6,36 +6,31 @@ using UnityEngine;
 public class homework : MonoBehaviour
 {
     public GameObject root;
-    // Start is called before the first frame update
     void Start()
     {
         root = GameObject.Find("Root");
-
-        // foreach (Transform child in root.transform)
-        // {
-        //     GameObject childObj = child.gameObject;
-        //     Debug.Log(childObj.name);
-        // }
-        foreach (Transform child in root.GetComponentsInChildren<Transform>())
-        {
-            GameObject childObj = child.gameObject;
-            Debug.Log('#' + childObj.name);
-        }
-        // for (int i = 0; i < 100; i++)
-        // {
-        //     Transform[] MyChild;
-        //     MyChild = root.GetComponentsInChildren<Transform>();
-        //     for (int j = 0; j < 100; j++)
-        //     {
-        //         Debug.Log(MyChild[j].name);
-        //     }
-
-        // }
+        PrintChildren(root.transform, 0);
     }
 
-    // Update is called once per frame
-    void Update()
+    void PrintChildren(Transform parent, int level)
     {
+        string prefix;//前缀
 
+        if (level == 0)  //第一层没有前缀
+        {
+            prefix = new string("");
+            Debug.Log(prefix + parent.name);
+        }
+        else
+        {
+            prefix = new string('#', (level * 2) - level); //表示层级的前缀
+
+            Debug.Log(prefix + parent.name);
+        }
+
+        foreach (Transform child in parent)
+        {
+            PrintChildren(child, level + 1);
+        }
     }
 }
