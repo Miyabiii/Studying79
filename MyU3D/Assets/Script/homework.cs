@@ -19,7 +19,7 @@ public class homework : MonoBehaviour
         foreach (Transform child in root.GetComponentsInChildren<Transform>())
         {
             GameObject childObj = child.gameObject;
-            Debug.Log(childObj.name);
+            Debug.Log('#' + childObj.name);
         }
         // for (int i = 0; i < 100; i++)
         // {

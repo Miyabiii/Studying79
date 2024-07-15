@@ -72,7 +72,7 @@ public class homework1 : MonoBehaviour
             //offset = Random.Range(0f, 1f);  //随机偏移量
             //Debug.Log("offset" + offset);
             speed = 2 + offset1[i] * 1;
-            Debug.Log("speed" + speed);
+            // Debug.Log("speed" + speed);
             //每帧朝x方向移动
             cubes[i].transform.Translate(Vector3.right * speed * Time.deltaTime);
             //超过销毁距离
