@@ -5,11 +5,40 @@ using UnityEngine;
 
 public class homework : MonoBehaviour
 {
-    public GameObject root;
+    GameObject root;
+    GameObject quad;
+    GameObject cube;
+    GameObject sphere;
+    GameObject cylinder;
+
+    int num;  //复制数量
     void Start()
     {
+        num = 5;
+
+        quad = GameObject.Find("MyQuad");
+        cube = GameObject.Find("MyCube");
+        sphere = GameObject.Find("MySphere");
+        cylinder = GameObject.Find("MyCylinder");
+
         root = GameObject.Find("Root");
+
+        for (int i = 0; i < num; i++)  //生成num个
+        {
+            CreateGameObject(quad, i);
+            CreateGameObject(cube, i);
+            CreateGameObject(sphere, i);
+            CreateGameObject(cylinder, i);
+        }
+
         PrintChildren(root.transform, 0);
+    }
+
+    void CreateGameObject(GameObject t, int i)
+    {
+        GameObject obj = Instantiate(t, new Vector3(0, 0, 0), Quaternion.identity);
+        obj.name = t.name + (i + 1);
+        obj.transform.parent = t.transform.parent;
     }
 
     void PrintChildren(Transform parent, int level)
